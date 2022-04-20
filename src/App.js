@@ -29,7 +29,7 @@ function LogIn({ login }) {
   );
 }
 function LoggedIn() {
-  const [dataFromServer, setDataFromServer] = useState("Loading...");
+  const [dataFromServer, setDataFromServer] = useState(<Body/>);
 
   useEffect(() => {
     facade.fetchData().then((data) => setDataFromServer(data.msg));

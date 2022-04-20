@@ -35,7 +35,7 @@ localStorage.removeItem("jwtToken");
   };
   const fetchData = () => {
     const options = makeOptions("GET", true); //True add's the token
-    return fetch(URL + "/api/info/user", options).then(handleHttpErrors);
+    return fetch(URL + "/api/info/admin", options).then(handleHttpErrors);
   };
   const makeOptions = (method, addToken, body) => {
     var opts = {
