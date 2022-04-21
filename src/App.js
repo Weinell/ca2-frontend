@@ -29,7 +29,7 @@ function LogIn({ login }) {
   );
 }
 function LoggedIn() {
-  const [dataFromServer, setDataFromServer] = useState(<Body/>);
+  const [dataFromServer, setDataFromServer] = useState("Loading...");
 
   useEffect(() => {
     facade.fetchData().then((data) => setDataFromServer(data.msg));
@@ -64,6 +64,7 @@ function App() {
           <button onClick={logout}>Logout</button>
         </div>
       )}
+      <div><Body/></div>
     </div>
   );
 }
