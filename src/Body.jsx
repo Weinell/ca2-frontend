@@ -1,5 +1,6 @@
 import React from "react";
 import { useState, useEffect } from "react";
+import { LIKE_URL } from "settings";
 import { JOKE_ANIMAL_URL } from "settings";
 
 export default function Body() {
@@ -7,6 +8,7 @@ export default function Body() {
   const [animal, setAnimal] = useState([]);
   const [jokeAnimal, setJokeAnimal] = useState([]);
   const [fox, setFox] = useState([]);
+  const [likes, setLikes] = useState([]);
 
   const getData = async () => {
     const res = await fetch(JOKE_ANIMAL_URL);
@@ -28,6 +30,13 @@ export default function Body() {
     })();
   }, []);
 
+  useEffect(() => {
+    (async () => {
+      const res = await fetch(LIKE_URL);
+      setLikes(res)
+    })();
+  }, []);
+
   return (
     <div>
       <div>
@@ -36,8 +45,15 @@ export default function Body() {
         <p>{animal}</p>
         <p>=</p>
         <p>{jokeAnimal}</p>
-        <img src={fox} alt='fox' />
+        <button onClick={testButton}/>
+        <div>
+          <img src={fox} alt="fox" />
+        </div>
       </div>
     </div>
   );
+}
+
+async function testButton() {
+  const res = await fetch(LIKE_URL);
 }
