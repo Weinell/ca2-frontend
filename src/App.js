@@ -61,10 +61,10 @@ function App() {
       ) : (
         <div>
           <LoggedIn />
+          <Body />
           <button onClick={logout}>Logout</button>
         </div>
       )}
-      <div><Body/></div>
     </div>
   );
 }
