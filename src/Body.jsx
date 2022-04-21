@@ -1,15 +1,14 @@
 import React from "react";
 import { useState, useEffect } from "react";
+import { JOKE_ANIMAL_URL } from "settings";
 
 export default function Body() {
-  const URL = "https://lazzoro.dk/ca2/api/jokeanimal";
-
   const [joke, setJoke] = useState([]);
   const [animal, setAnimal] = useState([]);
   const [jokeAnimal, setJokeAnimal] = useState([]);
 
   const getData = async () => {
-    const res = await fetch(URL);
+    const res = await fetch(JOKE_ANIMAL_URL);
     const json = await res.json();
     return json;
   };

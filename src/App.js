@@ -1,6 +1,7 @@
 import Body from "Body";
 import React, { useState, useEffect } from "react";
 import facade from "./apiFacade";
+import 'style.css'
 
 function LogIn({ login }) {
   const init = { username: "", password: "" };
@@ -21,8 +22,14 @@ function LogIn({ login }) {
     <div>
       <h2>Login</h2>
       <form onChange={onChange}>
-        <input placeholder="User Name" id="username" />
-        <input placeholder="Password" id="password" />
+        <div>
+          <div>
+            <input placeholder="User Name" id="username" />
+          </div>
+          <div>
+            <input placeholder="Password" type="password" id="password" />
+          </div>
+        </div>
         <button onClick={performLogin}>Login</button>
       </form>
     </div>
