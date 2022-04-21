@@ -6,6 +6,7 @@ export default function Body() {
   const [joke, setJoke] = useState([]);
   const [animal, setAnimal] = useState([]);
   const [jokeAnimal, setJokeAnimal] = useState([]);
+  const [fox, setFox] = useState([]);
 
   const getData = async () => {
     const res = await fetch(JOKE_ANIMAL_URL);
@@ -23,6 +24,7 @@ export default function Body() {
       setJoke(data.jokeObj.value);
       setAnimal(data.animalObj.name);
       setJokeAnimal(finishedJoke);
+      setFox(data.foxObj.image);
     })();
   }, []);
 
@@ -34,6 +36,7 @@ export default function Body() {
         <p>{animal}</p>
         <p>=</p>
         <p>{jokeAnimal}</p>
+        <img src={fox} alt='fox' />
       </div>
     </div>
   );
